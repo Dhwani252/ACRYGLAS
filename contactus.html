@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Vision Acryglas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family:  Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f2f2f2;
+    }
+
+    /* Header */
+    header {
+      background-color: #f8f8f8;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 100px;
+      width: 1200px;
+      max-width: 300px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e60000;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    /* Image Section */
+    .image-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .image-section img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Container to hold both sections side-by-side */
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 40px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    /* Shared style for both sections */
+    .key-personnel-section,
+    .address-section {
+      width: 100%;
+      max-width: 600px;
+      min-height: 500px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* Fade In Animation */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: red;
+    }
+
+    .office-title {
+      color: #4043ff;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* Personnel Cards */
+    .personnel-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .personnel-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .personnel-info {
+      text-align: left;
+    }
+
+    .personnel-name {
+      color: #4043ff;
+      margin: 0;
+    }
+
+    /* Address Block */
+    .address-section img {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .office-block {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+
+.site-footer {
+  background-color: #002244;
+  color: #ddd;
+  padding: 50px 20px 20px;
+  font-size: 0.95em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+  
+}
+
+.footer-col h4 {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e60000;
+  padding-bottom: 5px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #e60000;
+}
+
+.footer-col p {
+  margin-bottom: 10px;
+}
+
+.footer-col i {
+  margin-right: 8px;
+  color: #7bdaff;
+}
+
+.social-links a {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 1.4em;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #e60000;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 30px;
+    /* background-color: white; */
+  }
+}
+
+.footer-social {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+.social-container {
+  margin-bottom: 10px;
+}
+
+.social-container a {
+  color: white;
+  margin: 0 12px;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-container a:hover {
+  color: #00ffcc;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="99/1000694573.png" alt="Vision Acryglas Logo" />
+    </div>
+    <nav>
+       <a href="index.html">Home</a>
+      <a href="overview.html">Corporate Overview</a>
+      <a href="product.html">Product</a>
+      <a href="application.html">Application</a>
+        <a href="wheretobuy.html">Where to Buy</a>
+      <a href="inquiry.html">Inquiry</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Image Section -->
+  <div class="image-section">
+    <img src="images/contactus.jpg" alt="Corporate Overview Layout" />
+  </div>
+
+  <!-- Main Flex Container for Key Personnel and Address -->
+  <section class="main-container">
+
+    <!-- Key Personnel Section -->
+    <div class="key-personnel-section">
+      <h2 class="section-title">Key Personnel</h2>
+
+      <div class="personnel-card">
+        <img src="images/shail_img.png" alt="Shail Bhandari" class="personnel-img">
+        <div class="personnel-info">
+          <h3 class="personnel-name">Shail Bhandari</h3>
+          <p>Marketing and Product Development</p>
+          <p><strong>Phone No.:</strong> 905-362-0235 #21<br>
+             <strong>Email:</strong> <a href="mailto:Shail@visionmetalizers.com">shail@visionmetalizers.com</a></p>
+        </div>
+      </div>
+
+      <div class="personnel-card">
+        <img src="images/mukesh_patel.png" alt="Mukesh Patel" class="personnel-img">
+        <div class="personnel-info">
+          <h3 class="personnel-name">Mukesh Patel</h3>
+          <p>Finance and Administration</p>
+          <p><strong>Phone No.:</strong> 905-362-0235 #22<br>
+             <strong>Email:</strong> <a href="mailto:Mukesh@visionmetalizers.com">mukesh@visionmetalizers.com</a></p>
+        </div>
+      </div>
+
+      <div class="personnel-card">
+        <img src="images/Divyesh_bhandari.png" alt="Divyesh Bhandari" class="personnel-img">
+        <div class="personnel-info">
+          <h3 class="personnel-name">Divyesh Bhandari</h3>
+          <p>Production and Human Resource</p>
+          <p><strong>Phone No.:</strong> 905-362-0235 #22<br>
+             <strong>Email:</strong> <a href="mailto:Mukesh@visionmetalizers.com">divyesh@visionmetalizers.com</a></p>
+        </div>
+      </div>
+
+       <div class="personnel-card">
+        <img src="#" alt="Sanjay Vadiya" class="personnel-img">
+        <div class="personnel-info">
+          <h3 class="personnel-name">Sanjay Vadiya</h3>
+          <p></p>
+          <p><strong>Phone No.:</strong> 905-362-0235 #22<br>
+             <strong>Email:</strong> <a href="mailto:Mukesh@visionmetalizers.com">sanjay@visionmetalizers.com</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Address Section -->
+    <div class="address-section">
+      <h2 class="section-title">Office Address</h2>
+      <div class="office-block">
+        <img src="images/BG2.jpg" alt="Vision Acryglas Office">
+      </div>
+      <div class="office-block">
+        <p>
+          <strong>Vision Acryglas</strong><br>
+          Plot #33 - Panoli GIDC<br>
+          Phase 4, Panoli (Near Ankleshwar),<br>
+          Gujarat, India - 394116<br>
+          Phone: 02646 272171
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Column 1: About -->
+    <div class="footer-col">
+      <h4>Vision Acryglas</h4>
+      <p>A Division of Vision Polymer Pvt. Ltd<br>Specializing in premium acrylic sheet manufacturing.</p>
+    </div>
+
+    <!-- Column 2: Navigation Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="overview.html">Corporate Overview</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="application.html">Application</a></li>
+        <li><a href="wheretobuy.html">Where to Buy</a></li>
+        <li><a href="inquiry.html">Inquiry</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> info@visionacryglas.com</p>
+      <p><i class="fas fa-phone-alt"></i> +91-123-456-7890</p>
+      <p><i class="fas fa-map-marker-alt"></i> Plot No. 123, Industrial Area, City, Country</p>
+    </div>
+
+    <!-- Column 4: Social Media -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+       <div class="social-container">
+    <a href="https://www.facebook.com/visionpolymer" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.linkedin.com/in/vision-polymer-731187315" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/visionpolymer21" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/visionpolymer" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Vision Acryglas. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

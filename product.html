@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product | Vision Acryglas</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #f8f8f8;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo img {
+      height: 100px;
+      width: 1200px;
+      max-width: 300px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e60000;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .image-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .image-section img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .product-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .product-container h1 {
+      font-size: 32px;
+      color: #e60000;
+      margin-bottom: 30px;
+    }
+
+    .overview-slider-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .overview-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .overview-text h2 {
+      font-size: 24px;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .overview-text p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 420px;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 10px;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #e60000;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .slider-btn:hover {
+      background-color: #e60000;
+      color: #fff;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .slider-nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .slider-nav .dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-nav .dot.active {
+      background-color: #e60000;
+    }
+
+    .product-container h2 {
+      font-size: 22px;
+      color: #000;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .product-container p, .product-container li {
+      font-size: 16px;
+      color: #555;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .overview-slider-wrapper {
+        flex-direction: column;
+      }
+
+      .slider-container {
+        width: 100%;
+        height: 250px;
+      }
+    }
+
+/* Popular Product Cards */
+.popular-products-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.popular-products-section h2 {
+  font-size: 28px;
+  color: #e60000;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 400px;
+  width: 250px;
+  
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card-content {
+  padding: 15px;
+}
+
+.product-card-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.product-card-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* search */
+  .search-bar-container {
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  #productSearch {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  #productSearch:focus {
+    border-color: #007BFF;
+    
+  }
+
+.site-footer {
+  background-color: #002244;
+  color: #ddd;
+  padding: 50px 20px 20px;
+  font-size: 0.95em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+  
+}
+
+.footer-col h4 {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e60000;
+  padding-bottom: 5px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #e60000;
+}
+
+.footer-col p {
+  margin-bottom: 10px;
+}
+
+.footer-col i {
+  margin-right: 8px;
+  color: #7bdaff;
+}
+
+.social-links a {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 1.4em;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #e60000;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 30px;
+    /* background-color: white; */
+  }
+}
+
+.footer-social {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+.social-container {
+  margin-bottom: 10px;
+}
+
+.social-container a {
+  color: white;
+  margin: 0 12px;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-container a:hover {
+  color: #00ffcc;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+<header>
+  <div class="logo">
+    <img src="99/1000694573.png" alt="Vision Acryglas Logo" />
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="overview.html">Corporate Overview</a>
+    <a href="product.html">Product</a>
+    <a href="application.html">Application</a>
+      <a href="wheretobuy.html">Where to Buy</a>
+    <a href="inquiry.html">Inquiry</a>
+    <a href="contactus.html">Contact Us</a>
+  </nav>
+</header>
+
+<!-- Image Section -->
+<div class="image-section">
+  <img src="images/product (1).jpg" alt="Product Banner" />
+</div>
+
+<!-- Product Overview & Slider Section -->
+<section class="product-container">
+  <h1>Acrylic (PMMA) Sheets</h1>
+
+  <div class="overview-slider-wrapper" style="display: flex; flex-wrap: wrap; gap: 40px;">
+    <!-- Overview Text -->
+    <div class="overview-text" style="flex: 1; min-width: 300px;">
+      <h2>Overview</h2>
+      <p>
+        Acrylic (Polymethyl Methacrylate or PMMA) is a transparent thermoplastic known for its excellent clarity,
+        weather resistance, and versatility. It is a lightweight alternative to glass and is widely used across
+        industries due to its impact resistance and aesthetic appeal.
+      </p>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider-container" style="flex: 1; min-width: 300px;">
+      <div class="slider" id="slider">
+        <img src="images/Acrylic_Canopy_10 (1).jpg" alt="Acrylic Sheet 1" />
+        <img src="images/71DgRYxW6ML._AC_UF894,1000_QL80_.jpg" alt="Acrylic Sheet 2" />
+        <img src="images/dt.jpg" alt="Acrylic Sheet 3"/>
+      </div>
+      <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+      <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+      <div class="slider-nav" id="dots">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Features, Applications & Specifications Section -->
+<section class="product-details-section" style="padding: 50px 20px;">
+  <div class="features-applications" style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
+    <!-- Key Features -->
+    <div class="key-features" style="flex: 1; min-width: 300px;">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Exceptional optical clarity – up to 92% light transmission</li>
+        <li>10x stronger than glass but much lighter in weight</li>
+        <li>Excellent UV and weather resistance</li>
+        <li>Resistant to a wide range of chemicals</li>
+        <li>Easy to cut, drill, engrave, and thermoform</li>
+      </ul>
+    </div>
+
+    <!-- Applications -->
+    <div class="applications" style="flex: 1; min-width: 300px;">
+      <h2>Applications</h2>
+      <ul>
+        <li>Signs & Signboards</li>
+        <li>Display Panels & Point-of-Sale Fixtures</li>
+        <li>Interior Design & Furniture</li>
+        <li>Lighting Fixtures & Skylights</li>
+        <li>Industrial Guards & Machine Covers</li>
+        <li>Medical Devices & Enclosures</li>
+        <li>Automotive & Transportation Glazing</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Specifications -->
+  <div class="specifications" style="max-width: 800px; margin: 10px 0px;">
+    <h2>Specifications</h2>
+    <ul>
+									
+      <li><strong>Sizes :</strong> Range from 48&quot; x 96&quot; to 75&quot; x 100&quot;<br /></li>
+      <li><strong>Standard Thicknesses:</strong> Available from 2mm to 8mm in clear and in color</li>
+      <li><strong>Colors Available:</strong> Clear, Opal, Black, White</li>
+      <li><strong>Special Orders:</strong>Available in an array of custom colors and sizes upon request, delivering tailored solutions for every unique application.</li>
+    </ul>
+  </div>
+</section>
+</section>
+
+<!-- Popular Products Section -->
+<div class="popular-products-section">
+  <h2 >Our Products</h2>
+  
+<div class="search-bar-container">
+  <input type="text" id="productSearch" placeholder="Search products..." />
+</div>
+<div class="popular-grid">
+
+    <!-- Card 1 -->
+    <a href="optix-99-acrylic.html" class="product-card">
+      <img src="images/996.jpg" alt="VISION ACRYGLAS 99 Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS 99 Acrylic</h3>
+      <p>The ultra-light matte finish of VISION ACRYGLAS 99 minimizes unwanted glare in a variety of lighting...</p>
+    </div>
+    </a>
+
+
+    <!-- Card 2 -->
+    <a href="roll-stock-acrylic.html" class="product-card">
+  <img src="images/plastic-rollstock.webp" alt="Roll Stock Acrylic" />
+  <div class="product-card-content">
+    <h3>Roll Stock Acrylic</h3>
+    <p>VISION ACRYGLAS SG Acrylic, DURAPLEX SG05 and SG10 are available in roll stock for the Sign market. ...</p>
+  </div>
+</a>
+
+   
+    <!--  Card 3 -->
+    
+<!-- <a href="VISION ACRYGLAS-thin-gauge-acrylic.html" class="product-card">
+  <img src="images/thin.jpg" alt="VISION ACRYGLAS Thin Gauge Acrylic" />
+  <div class="product-card-content">
+    <h3>VISION ACRYGLAS<sup>®</sup> Thin Gauge Acrylic</h3>
+    <p>Crystal clear and incredibly strong, VISION ACRYGLAS Thin Gauge acrylic sheet is engineered specific...</p>
+  </div>
+</a> -->
+
+     <!-- Card 4- -->
+    <a href="optix-95-acrylic.html" class="product-card">
+      <img src="images/951.jpg" alt="VISION ACRYGLAS 95 Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS 95 Acrylic</h3>
+      <p>VISION ACRYGLAS 95 is a continuously processed acrylic sheet with a matte finish on one side that pr...</p>
+    </div>
+    </a>
+
+     
+    <!-- Card 5 -->
+    <!-- <a href="VISION ACRYGLAS-acrylic-plazcryl.html" class="product-card">
+  <img src="images/3.jpg"    alt="        VISION ACRYGLAS Acrylic (Plazcryl)" />
+  <div class="product-card-content">
+    <h3>VISION ACRYGLAS<sup>®</sup> Acrylic (Plazcryl)</h3>
+    <p>Extruded Polymethyl Methacrylate (PMMA) Solid Sheets, formerly branded Plazcryl have brigh...</p>
+  </div>
+</a> -->
+   
+ 
+    <!-- Card 6-->
+    <a href="high-impact.html" class="product-card">
+      <img src="images/HIGH2.jpg" alt="VISION ACRYGLAS High Impact Acrylic" />
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS High Impact Acrylic</h3>
+      <p>Extruded PMMA sheets formerly branded Plazcryl — durable and high-performance...</p>
+    </div>
+    </a>
+
+      <!-- Card 7-->
+<!-- <a href="VISION ACRYGLAS-thick-gauge-acrylic.html" class="product-card">
+  <img src="images/thik.jpg"alt="VISION ACRYGLAS Thick Gauge Acrylic" />
+  <div class="product-card-content">
+    <h3>VISION ACRYGLAS<sup>®</sup> Thick Gauge Acrylic</h3>
+    <p>VISION ACRYGLAS thick gauge acrylic is available from .500” to 1’. Crystal clear and impact resista...</p>
+  </div>
+</a> -->
+
+  <!-- Card 8-->
+<!-- <a href="product-details/VISION ACRYGLAS-ng-light-matte.html" class="product-card">
+  <img src="images/light.jpg" alt="VISION ACRYGLAS NG - Non-Glare Acrylic Light Matte" />
+  <div class="product-card-content">
+    <h3>VISION ACRYGLAS<sup>®</sup> NG - Non-Glare Acrylic Light Matte</h3>
+    <p>VISION ACRYGLAS NG Light Matte is a non-glare acrylic sheet ideal for signage, silk-screening, and p...</p>
+  </div>
+</a> -->
+
+  <!-- Card 9-->
+<!-- <a href="product-details/VISION ACRYGLAS-ng-heavy-matte.html" class="product-card">
+  <img src="images/heavy.jpg" alt="VISION ACRYGLAS NG - Non-Glare Acrylic Heavy Matte" />
+  <div class="product-card-content">
+    <h3>VISION ACRYGLAS<sup>®</sup> NG - Non-Glare Acrylic Heavy Matte</h3>
+    <p>VISION ACRYGLAS NG Heavy Matte is a non-glare acrylic sheet ideal for signage, silk-screening, and p...</p>
+  </div>
+</a> -->
+
+ 
+     <!-- Card 10-->
+    <a href="nb.html" class="product-card">
+      <img src="images/noise barrier2.jpg" alt="VISION ACRYGLAS NB - Noise Barrier Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS NB - Noise Barrier Acrylic</h3>
+      <p>VISION ACRYGLAS NB is a continuously-processed acrylic sheet designed to block traffic noise without...</p>
+    </div>
+    </a>
+
+ <!-- Card 11-->
+    <a href="regular.html" class="product-card">
+      <img src="images/clear.jpg" alt="VISION ACRYGLAS NB - Noise Barrier Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS<sup>®</sup>Acrylic</h3>
+      <p>Crystal clear, impact- and weather-resistant, VISION ACRYGLAS is a continuously processed, high quality acrylic sheet..</p>
+    </div>
+    </a>
+
+
+ <a href="frame-grade.html" class="product-card">
+      <img src="images/f2.jpg" alt="VISION ACRYGLAS NB - Noise Barrier Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS<sup>®</sup> Frame Grade Acrylic</h3>
+      <p>Vision Acryglas FRAME GRADE clear acrylic is camera inspected for imperfections throughout the manufacturing process..</p>
+    </div>
+    </a>
+
+<a href="fabback-mirror.html" class="product-card">
+      <img src="images/mirror1.jpg" alt="VISION ACRYGLAS NB - Noise Barrier Acrylic">
+        <div class="product-card-content">
+      <h3>VISION ACRYGLAS<sup>®</sup> Acrylic Mirror</h3>
+      <p>Vision Acryglas acrylic mirror is made from Vision Acryglas continuously processed acrylic sheet...</p>
+    </div>
+    </a>
+
+</div>
+</div>
+
+    
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody>
+					<tr>
+						<td width="20">&nbsp;</td>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td colspan="7" height="56">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td height="56" width="20"><img height="8" src="images/blackarrow.jpg" width="15" /></td>
+												<td align="left" class="title" valign="middle" style="color: red; font-weight: bolder;">Other Products</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td width="217"><img height="153" src="images/product1.jpg" width="217" /></td>
+									<td>&nbsp;</td>
+									<td width="216"><img height="154" src="images/product2.jpg" width="216" /></td>
+									<td>&nbsp;</td>
+									<td width="217"><img height="153" src="images/product3.jpg" width="217" /></td>
+									<td>&nbsp;</td>
+									<td width="216"><img height="153" src="images/product4.jpg" width="216" /></td>
+								</tr>
+							</tbody>
+						</table>
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Column 1: About -->
+    <div class="footer-col">
+      <h4>Vision Acryglas</h4>
+      <p>A Division of Vision Polymer Pvt. Ltd<br>Specializing in premium acrylic sheet manufacturing.</p>
+    </div>
+
+    <!-- Column 2: Navigation Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="overview.html">Corporate Overview</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="application.html">Application</a></li>
+        <li><a href="wheretobuy.html">Where to Buy</a></li>
+        <li><a href="inquiry.html">Inquiry</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p><i class="fas fa-envelope"></i> info@visionacryglas.com</p>
+      <p><i class="fas fa-phone-alt"></i> +91-123-456-7890</p>
+      <p><i class="fas fa-map-marker-alt"></i> Plot No. 123, Industrial Area, City, Country</p>
+    </div>
+
+    <!-- Column 4: Social Media -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+       <div class="social-container">
+    <a href="https://www.facebook.com/visionpolymer" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.linkedin.com/in/vision-polymer-731187315" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/visionpolymer21" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/visionpolymer" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Vision Acryglas. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+
+  
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll("#slider img");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+      if (index >= slides.length) slideIndex = 0;
+      else if (index < 0) slideIndex = slides.length - 1;
+      else slideIndex = index;
+
+      const offset = -slideIndex * 100;
+      document.getElementById("slider").style.transform = `translateX(${offset}%)`;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[slideIndex].classList.add("active");
+    }
+
+    function moveSlide(step) {
+      showSlide(slideIndex + step);
+    }
+
+    function currentSlide(index) {
+      showSlide(index);
+    }
+
+    // Initialize on page load
+    showSlide(slideIndex);
+
+
+
+    // search
+  document.getElementById('productSearch').addEventListener('keyup', function () {
+    const query = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+      const title = card.querySelector('h3').innerText.toLowerCase();
+      card.style.display = title.includes(query) ? 'block' : 'none';
+    });
+  });
+
+ 
+
+
+  </script>
+
+</body>
+</html>
